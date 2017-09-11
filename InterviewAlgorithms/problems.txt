@@ -1,0 +1,199 @@
+﻿Netflix
+
+=======
+
+1. Given a file full of these strings:
+
+Vivek 1
+
+Vivek 2
+
+Ajit 3
+
+Krishna 4
+
+Keshav 6
+
+Keshav 7
+
+Print the duplicates and the IDs:
+
+Vivek: 1, 2
+
+Keshav: 6, 7
+
+2. Implement a class Sorter with 2 functions: AddValue & GetValues. GetValues in sorted order. Can assume any data type.
+
+/*
+
+Consider a game of cards where there are n number of players sat around a table playing and a single dealer that is controlling the game. The game can played with a variable number of decks of cards.
+
+If you were to consider writing a simulator for the game using object oriented principles, outline the classes that would be present in the design and how the would relate to each other
+
+*/
+
+Google
+
+======
+
+1. Write an iterator class for finding the inorder successor in a Binary Tree
+
+2. Some testing questions
+
+Given a MxN matrix return the count of islands
+
+0 0 1 1 0 1
+
+0 0 1 1 1 0
+
+1 1 0 0 0 0
+
+Ex: 3 islands in the above matrix (an island has all 1s in the neighboring nodes, not diagonally)
+
+3. Chrome is implementing remote desktop feature where a user can log into another maching through an app installed from Chrome and do remote desktop operations. Test plan for this feature. Had to cover everything - app, RDP (media negotiation), sender side, receiver side etc
+
+4. Given a sorted list of non-overlapping intervals, insert a new interval at the right location if it does not overlap. If it does, return the merged interval.
+
+[3,10] [5,20] [6,40]
+
+If [4,25] --> return [3,10] [5,25] [6,40]
+
+If [1,2] --> return [1,2] [3,10] [5,20] [6,40]
+
+5. Test plan for formatting feature in Google doc (online)
+
+6. Given a sentence reverse the order of words
+
+I am Vivek
+
+Vivek am I
+
+7. Assume Google is implementing push to update OS on Android phones. Design a test plan to test this.
+
+8. Write code to find the deepest node in a binary tree (depth first traversal only)
+
+9. Last interviewer
+
+Find the longest substring in a string with only 2 varying characters
+
+aaabbbcccdddddd ==> cccddddd
+
+10. In a BST with integer values, given a float value return the node with the closest value
+
+LinkedIn
+
+========
+
+1. /**
+
+* Return the sum of all integers from a random String. Continuous Integers must be considered as one number.
+
+* If the input String does not have any Integers, return 0.
+
+* You may ignore decimals, float, and other non-integer numbers
+
+* @param str : Input String
+
+*
+
+* Given the following inputs, we expect the corresponding output:
+
+* "1a2b3c" => 6 (1+2+3)
+
+* "123ab!45c" => 168 (123+45)
+
+* "abcdef" => 0 (no Integers in String)
+
+* "0123.4" => 127 (0123+4)
+
+* "dFD$#23+++12@#T1234;/.,10" => 1279 (23+12+1234+10)
+
+*/
+
+Apple
+
+=====
+
+1. Given a string of words print the # of occurances of each word
+
+2. Write a parser for validating if an XML is wellformed or not
+
+Amazon
+
+======
+
+1. What is a priority queue? How will you implement it? Complexity of each implementation.
+
+2. Implement atoi
+
+3. Given an unsorted array of integers with each value occuring even number of times except for one of them which occurs odd number of times. Return the element which occurs odd number of times.
+
+Ex: 3 1 3 4 4 0 0 ==> return 1
+
+4. Question: Curly braces can be used in programming to provide scope-limit. Write a function to print all valid( properly opened and closed) combinations of n-pairs of curly braces.
+
+Example:
+
+input: 1 output: {}
+
+input: 2 output: {}{}, {{}}
+
+input: 3 output: {}{}{}, {}{{}}, {{}}{}, {{}{}}, {{{}}}
+
+5. Test a Coke vending machine
+
+Apple
+
+=====
+
+What frameworks I've built in the past?
+
+Given a collection of tiles and collection of points, how will you find if a a tile has any points in it?
+
+Code up palindrome
+
+Given a huge JSON file, write a way to serialize paths
+
+Ex: { k1 : '1234',
+
+k2 :
+
+{ k3 : '123',
+
+k4 : 'abc'
+
+}
+
+k3 : 'sddd',
+
+}
+
+output: k1 -> k2.k3 -> k2.k4, k3
+
+Explain my approach to testing in the past. Dev hooks, api layer, abstraction etc
+
+Write a class for implementing LRU cache. What methods will be there? How will you test it?
+
+Given a collection of points, return the k closest points to a given point
+
+How did I deal with an ambiguous situation
+
+What is my approach to solving a big daunting problem
+
+Amazon
+
+======
+
+Given a dictionary of words. There can be duplicates. Given a bag of letters. There can be duplicates. Print the length of the longest valid dictionary word that can be formed from the bag.
+
+Design contacts feature in a phone
+
+Given a 4 way signal, design the signal controller
+
+Lots of behavioral questions / utilize PAR STAR framework with the Amazon leadership skills as a basis.
+
+How will test search in Amazon (given 2 hours)
+
+Given an alarm service with few APIs. Test the APIs + the Alarm App
+
+Given a conveyor belt with boxes coming in an Amazon wearhouse. Each box has 2 labels. Order # + UPCs of all items in the box. A scanner reads these labels and sends it a webservice to validate that the UPCs belong to the order. The webservice returns true or false. if true, it puts the box in success belt else puts it in failure belt. Test this system.
