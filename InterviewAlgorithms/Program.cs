@@ -35,13 +35,31 @@ namespace InterviewAlgorithms
         "Keshav 7"
       };
 
+      var duplicate = new Dictionary<string, string>();
       foreach (string item in list1)
       {
-        
+        var tmpName = GetName(item);
+        var tmpNumber = GetNumber(item);
+
       }
 
       Display("press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static string GetNumber(string item)
+    {
+      string result = string.Empty;
+      //"Vivek 1"
+      result = item.Substring(item.IndexOf(' ') + 1);
+      return result;
+    }
+
+    private static string GetName(string item)
+    {
+      string result = string.Empty;
+
+      return result;
     }
   }
 }
