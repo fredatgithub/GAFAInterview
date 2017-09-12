@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace InterviewAlgorithms
 {
-  internal static class Program
+  public static class Program
   {
     private static void Main()
     {
@@ -35,19 +35,34 @@ namespace InterviewAlgorithms
         "Keshav 7"
       };
 
-      var duplicate = new Dictionary<string, string>();
+      var duplicates = new Dictionary<string, string>();
       foreach (string item in list1)
       {
         var tmpName = GetName(item);
         var tmpNumber = GetNumber(item);
+        if (duplicates.ContainsKey(tmpName))
+        {
+          duplicates[tmpName] += $",{tmpNumber}";
+        }
+        else
+        {
+          duplicates[tmpName] = tmpNumber;
+        }
+      }
 
+      foreach (KeyValuePair<string, string> kvp in duplicates)
+      {
+        if (duplicates[kvp.Key].Contains(","))
+        {
+          Display($"{kvp.Key} {duplicates[kvp.Key]}");
+        }
       }
 
       Display("press any key to exit:");
       Console.ReadKey();
     }
 
-    private static string GetNumber(string item)
+    public static string GetNumber(string item)
     {
       string result = string.Empty;
       //"Vivek 1"
@@ -55,10 +70,11 @@ namespace InterviewAlgorithms
       return result;
     }
 
-    private static string GetName(string item)
+    public static string GetName(string item)
     {
       string result = string.Empty;
-
+      //"Vivek 1"
+      result = item.Substring(0, item.IndexOf(' '));
       return result;
     }
   }
