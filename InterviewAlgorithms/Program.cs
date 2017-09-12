@@ -24,7 +24,7 @@ namespace InterviewAlgorithms
         Vivek: 1, 2
         Keshav: 6, 7
        * */
-
+      Display("Problem 1 NetFlix");
       List<string> list1 = new List<string>
       {
         "Vivek 1",
@@ -58,6 +58,8 @@ namespace InterviewAlgorithms
         }
       }
 
+      Display("-----------------");
+      Display("Problem 2 NetFlix");
       Display("press any key to exit:");
       Console.ReadKey();
     }
