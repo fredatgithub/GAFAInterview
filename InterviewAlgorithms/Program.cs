@@ -60,24 +60,32 @@ namespace InterviewAlgorithms
 
       Display("-----------------");
       Display("Problem 2 NetFlix");
+      /*
+       Implement a class Sorter with 2 functions: AddValue & GetValues. GetValues in sorted order. Can assume any data type.
+       * */
+       Sorter collection1 = new Sorter();
+      collection1.AddValue("a string");
+      collection1.AddValue(3);
+      collection1.AddValue(DateTime.Now);
+      Display(collection1.GetValues<string>(0).ToString());
+      Display(collection1.GetValues<DateTime>(2).ToString());
+      Display("-----------------");
+      Display("Problem 3 NetFlix");
+
+
+
       Display("press any key to exit:");
       Console.ReadKey();
     }
 
     public static string GetNumber(string item)
     {
-      string result = string.Empty;
-      //"Vivek 1"
-      result = item.Substring(item.IndexOf(' ') + 1);
-      return result;
+      return item.Substring(item.IndexOf(' ') + 1);
     }
 
     public static string GetName(string item)
     {
-      string result = string.Empty;
-      //"Vivek 1"
-      result = item.Substring(0, item.IndexOf(' '));
-      return result;
+      return item.Substring(0, item.IndexOf(' '));
     }
   }
 }
