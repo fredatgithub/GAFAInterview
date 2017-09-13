@@ -7,7 +7,7 @@ namespace InterviewAlgorithms
   {
     private static void Main()
     {
-      Action<string> Display = Console.WriteLine;
+      Action<string> display = Console.WriteLine;
       /* Problems are in text file  */
       // problem 1 Netflix
       /*
@@ -24,7 +24,7 @@ namespace InterviewAlgorithms
         Vivek: 1, 2
         Keshav: 6, 7
        * */
-      Display("Problem 1 NetFlix");
+      display("Problem 1 NetFlix");
       List<string> list1 = new List<string>
       {
         "Vivek 1",
@@ -54,27 +54,31 @@ namespace InterviewAlgorithms
       {
         if (duplicates[kvp.Key].Contains(","))
         {
-          Display($"{kvp.Key} {duplicates[kvp.Key]}");
+          display($"{kvp.Key} {duplicates[kvp.Key]}");
         }
       }
 
-      Display("-----------------");
-      Display("Problem 2 NetFlix");
+      display("-----------------");
+      display("Problem 2 NetFlix");
       /*
        Implement a class Sorter with 2 functions: AddValue & GetValues. GetValues in sorted order. Can assume any data type.
        * */
-       Sorter collection1 = new Sorter();
+      Sorter collection1 = new Sorter();
       collection1.AddValue("a string");
       collection1.AddValue(3);
       collection1.AddValue(DateTime.Now);
-      Display(collection1.GetValues<string>(0).ToString());
-      Display(collection1.GetValues<DateTime>(2).ToString());
-      Display("-----------------");
-      Display("Problem 3 NetFlix");
+      display(collection1.GetValues<string>(0).ToString());
+      display(collection1.GetValues<DateTime>(2).ToString());
+      display("-----------------");
+      display("Problem 3 NetFlix");
+      /*
+       Consider a game of cards where there are n number of players sat around a table playing and a single dealer that is controlling the game. The game can played with a variable number of decks of cards.
+
+       If you were to consider writing a simulator for the game using object oriented principles, outline the classes that would be present in the design and how the would relate to each other
+       * */
 
 
-
-      Display("press any key to exit:");
+      display("press any key to exit:");
       Console.ReadKey();
     }
 
