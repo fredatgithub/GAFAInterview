@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Media;
+using System.Security.Policy;
 
 namespace InterviewAlgorithms
 {
@@ -76,6 +78,11 @@ namespace InterviewAlgorithms
 
        If you were to consider writing a simulator for the game using object oriented principles, outline the classes that would be present in the design and how the would relate to each other
        * */
+      Card carte = new Card();
+      CardHand hand = new CardHand();
+      Player computerPlayer = new Player();
+      Player dealer = new Player();
+      Game firstGame = new Game();
 
 
       display("press any key to exit:");
@@ -91,5 +98,36 @@ namespace InterviewAlgorithms
     {
       return item.Substring(0, item.IndexOf(' '));
     }
+  }
+
+  internal class Game
+  {
+    public int NumberOfPlayer { get; set; }
+    public int numberOfDecksOfCards { get; set; }
+    public Game()
+    {
+      NumberOfPlayer = 1;
+      numberOfDecksOfCards = 1;
+    }
+  }
+
+  internal class Player
+  {
+  }
+
+  internal class CardHand 
+  {
+    public List<Card> ListOfCards { get; set; }
+    public CardHand()
+    {
+      ListOfCards = new List<Card>();
+    }
+
+    public void AddCard(){}
+    public void RemoveCard() { }
+  }
+
+  internal class Card
+  {
   }
 }
