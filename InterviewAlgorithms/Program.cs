@@ -157,6 +157,24 @@ namespace InterviewAlgorithms
     {
       string result = string.Empty;
       // TODO add code
+      string tmpResult = Intervals.ToString();
+      int intMin = 0;
+      int intMax = 0;
+      for (int i = 0; i < Intervals.Count; i++)
+      {
+        if (interval.Min < Intervals[i].Min)
+        {
+          intMin = Intervals[i].Min;
+        }
+
+        if (interval.Max < Intervals[i].Max)
+        {
+          intMax = Intervals[i].Max;
+        }
+      }
+
+      Interval tmpInterval = new Interval(intMin, intMax);
+      // TODO add all cases
 
       return result;
     }
@@ -176,17 +194,15 @@ namespace InterviewAlgorithms
   internal class Game
   {
     public int NumberOfPlayer { get; set; }
-    public int numberOfDecksOfCards { get; set; }
+    public int NumberOfDecksOfCards { get; set; }
     public Game()
     {
       NumberOfPlayer = 1;
-      numberOfDecksOfCards = 1;
+      NumberOfDecksOfCards = 1;
     }
   }
 
-  internal class Player
-  {
-  }
+  internal class Player{}
 
   internal class CardHand
   {
@@ -200,7 +216,5 @@ namespace InterviewAlgorithms
     public void RemoveCard() { }
   }
 
-  internal class Card
-  {
-  }
+  internal class Card{}
 }
