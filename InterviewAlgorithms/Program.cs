@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Media;
 using System.Security.Policy;
+using System.Threading;
 
 namespace InterviewAlgorithms
 {
@@ -108,11 +109,19 @@ namespace InterviewAlgorithms
       /*
        4. Given a sorted list of non-overlapping intervals, insert a new interval at the right location if it does not overlap. If it does, return the merged interval.
        [3,10] [5,20] [6,40]
-       If [4,25] --> return [3,10] [5,25] [6,40]
+       If [4,25] --> return [3,10] [4,25] [6,40]
        If [1,2] --> return [1,2] [3,10] [5,20] [6,40]
        * */
-
-
+      Interval interval1 = new Interval(3, 10);
+      Interval interval2 = new Interval(5, 20);
+      Interval interval3 = new Interval(6, 40);
+      ListOfInterval listOfIntervals = new ListOfInterval();
+      listOfIntervals.Add(interval1);
+      listOfIntervals.Add(interval2);
+      listOfIntervals.Add(interval3);
+      display($"{listOfIntervals.Insert(new Interval(4, 25))}");
+      display($"{listOfIntervals.Insert(new Interval(1, 2))}");
+      display($"{listOfIntervals.Insert(new Interval(7, 50))}");
 
       display("press any key to exit:");
       Console.ReadKey();
@@ -126,6 +135,41 @@ namespace InterviewAlgorithms
     public static string GetName(string item)
     {
       return item.Substring(0, item.IndexOf(' '));
+    }
+  }
+
+  internal class ListOfInterval
+  {
+    public List<Interval> Intervals { get; set; }
+
+    public ListOfInterval()
+    {
+      Intervals = new List<Interval>();
+      Intervals.Sort();
+    }
+
+    public void Add(Interval interval)
+    {
+      Intervals.Add(interval);
+    }
+
+    public string Insert(Interval interval)
+    {
+      string result = string.Empty;
+      // TODO add code
+
+      return result;
+    }
+  }
+
+  internal class Interval
+  {
+    public int Min { get; set; }
+    public int Max { get; set; }
+    public Interval(int min, int max)
+    {
+      Min = min;
+      Max = max;
     }
   }
 
@@ -144,7 +188,7 @@ namespace InterviewAlgorithms
   {
   }
 
-  internal class CardHand 
+  internal class CardHand
   {
     public List<Card> ListOfCards { get; set; }
     public CardHand()
@@ -152,7 +196,7 @@ namespace InterviewAlgorithms
       ListOfCards = new List<Card>();
     }
 
-    public void AddCard(){}
+    public void AddCard() { }
     public void RemoveCard() { }
   }
 
