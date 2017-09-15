@@ -83,6 +83,35 @@ namespace InterviewAlgorithms
       Player computerPlayer = new Player();
       Player dealer = new Player();
       Game firstGame = new Game();
+      display("-----------------");
+      display("Problem 4 Google1");
+      /*
+          1. Write an iterator class for finding the inorder successor in a Binary Tree
+       */
+      display("-----------------");
+      display("Problem 5 Google2");
+      /*
+          2. Some testing questions
+            Given a MxN matrix return the count of islands
+              0 0 1 1 0 1
+              0 0 1 1 1 0
+              1 1 0 0 0 0
+        Ex: 3 islands in the above matrix (an island has all 1s in the neighboring nodes, not diagonally)
+       */
+      display("-----------------");
+      display("Problem 6 Google3");
+      /*
+       3. Chrome is implementing remote desktop feature where a user can log into another maching through an app installed from Chrome and do remote desktop operations. Test plan for this feature. Had to cover everything - app, RDP (media negotiation), sender side, receiver side etc
+       * */
+      display("-----------------");
+      display("Problem 7 Google4");
+      /*
+       4. Given a sorted list of non-overlapping intervals, insert a new interval at the right location if it does not overlap. If it does, return the merged interval.
+       [3,10] [5,20] [6,40]
+       If [4,25] --> return [3,10] [5,25] [6,40]
+       If [1,2] --> return [1,2] [3,10] [5,20] [6,40]
+       * */
+
 
 
       display("press any key to exit:");
