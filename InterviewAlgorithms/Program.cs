@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Media;
-using System.Security.Policy;
-using System.Threading;
 
 namespace InterviewAlgorithms
 {
@@ -11,6 +8,7 @@ namespace InterviewAlgorithms
     private static void Main()
     {
       Action<string> display = Console.WriteLine;
+      Action<string> displayWord = Console.Write;
       /* Problems are in text file  */
       // problem 1 Netflix
       /*
@@ -122,6 +120,48 @@ namespace InterviewAlgorithms
       display($"{listOfIntervals.Insert(new Interval(4, 25))}");
       display($"{listOfIntervals.Insert(new Interval(1, 2))}");
       display($"{listOfIntervals.Insert(new Interval(7, 50))}");
+
+      display("-----------------");
+      display("Problem 8 Google5");
+      /*
+       5. Test plan for formatting feature in Google doc (online)
+       */
+      display("-----------------");
+      display("Problem 9 Google6");
+      /*
+       6. Given a sentence reverse the order of words
+       I am Vivek
+       Vivek am I
+       */
+      const string sentence = "I am Vivek";
+      string[] splitSentence = sentence.Split(' ');
+      for (int i = splitSentence.Length - 1; i >= 0 ; i--)
+      {
+        displayWord($"{splitSentence[i]} ");
+      }
+
+      display(string.Empty);
+      display("-----------------");
+      display("Problem 10 Google7");
+      /*
+       7. Assume Google is implementing push to update OS on Android phones. Design a test plan to test this.
+       */
+
+      display("-----------------");
+      display("Problem 11 Google8");
+      /*
+       8. Write code to find the deepest node in a binary tree (depth first traversal only)
+       */
+
+      display("-----------------");
+      display("Problem 12 Google9");
+      /*
+       9. Last interviewer
+       Find the longest substring in a string with only 2 varying characters
+       aaabbbcccdddddd ==> cccddddd
+       */
+      const string sentence129 = "aaabbbcccdddddd";
+
 
       display("press any key to exit:");
       Console.ReadKey();
