@@ -174,26 +174,90 @@ namespace InterviewAlgorithms
       /*
        1. 
         * Return the sum of all integers from a random String. Continuous Integers must be considered as one number.
-
         * If the input String does not have any Integers, return 0.
-
         * You may ignore decimals, float, and other non-integer numbers
-
         * @param str : Input String
        */
       const string inputString = "12s312g3123h345d45a65z67 687s909x745";
       display($"The sum of all numbers is {ReturnSumOfAllInt(inputString)}");
 
+      display("-----------------");
+      display("Problem 15 LinkedIn2");
+      /*
+       * Given the following inputs, we expect the corresponding output:
+        * "1a2b3c" => 6 (1+2+3)
+        * "123ab!45c" => 168 (123+45)
+        * "abcdef" => 0 (no Integers in String)
+        * "0123.4" => 127 (0123+4)
+        * "dFD$#23+++12@#T1234;/.,10" => 1279 (23+12+1234+10)
+       */
+      const string line1 = "1a2b3c";
+      const string line2 = "123ab!45c";
+      const string line3 = "abcdef";
+      const string line4 = "0123.4";
+      const string line5 = "dFD$#23+++12@#T1234;/.,10";
+      display($"{ReturnSumOfAllInt(line1)}");
+      display($"{ReturnSumOfAllInt(line2)}");
+      display($"{ReturnSumOfAllInt(line3)}");
+      display($"{ReturnSumOfAllInt(line4)}");
+      display($"{ReturnSumOfAllInt(line5)}");
+
+      display("-----------------");
+      display("Problem 16 Apple1");
+      /*
+       1. Given a string of words print the # of occurances of each word
+       */
+      const string words = "A long long time ago in a galaxy far far away";
+      string[] wordList = words.Split(' ');
+      Dictionary<string, int> dico = new Dictionary<string, int>();
+      foreach (string word in wordList)
+      {
+        if (dico.ContainsKey(word))
+        {
+          dico[word]++;
+        }
+        else
+        {
+          dico.Add(word, 1);
+        }
+      }
+
+      display("In the sentence:");
+      display(words);
+      foreach (KeyValuePair<string, int> kvp in dico)
+      {
+        display($"The word {kvp.Key} is used {kvp.Value} time{Plural(kvp.Value)}");
+      }
+
+      display("-----------------");
+      display("Problem 17 Apple2");
+      /*
+       2. Write a parser for validating if an XML is wellformed or not
+       */
+      const string oneXml = @"";
+      display($"The validation of the XML is {IsXmlValidated(oneXml)}");
 
 
       display("press any key to exit:");
       Console.ReadKey();
     }
 
+    private static bool IsXmlValidated(string oneXml)
+    {
+      bool result = false;
+      // TODO check header and tags properly opened and closed
+
+      return result;
+    }
+
+    private static string Plural(int number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+
     private static int ReturnSumOfAllInt(string sentence)
     {
       int result = 0;
-      int counter = 1;
       List<int> allNumbers = new List<int>();
       string tmpNumber = string.Empty;
       foreach (char t in sentence)
@@ -207,9 +271,11 @@ namespace InterviewAlgorithms
         {
           if (!char.IsNumber(t))
           {
-            allNumbers.Add(int.Parse(tmpNumber));
-            tmpNumber = string.Empty;
-            counter++;
+            if (tmpNumber != string.Empty)
+            {
+              allNumbers.Add(int.Parse(tmpNumber));
+              tmpNumber = string.Empty;
+            }        
           }
         }
       }
@@ -218,7 +284,6 @@ namespace InterviewAlgorithms
       {
         allNumbers.Add(int.Parse(tmpNumber));
         tmpNumber = string.Empty;
-        counter++;
       }
 
       int total = allNumbers.Sum();
