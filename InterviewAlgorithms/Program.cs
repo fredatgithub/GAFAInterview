@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InterviewAlgorithms
 {
@@ -135,7 +136,7 @@ namespace InterviewAlgorithms
        */
       const string sentence = "I am Vivek";
       string[] splitSentence = sentence.Split(' ');
-      for (int i = splitSentence.Length - 1; i >= 0 ; i--)
+      for (int i = splitSentence.Length - 1; i >= 0; i--)
       {
         displayWord($"{splitSentence[i]} ");
       }
@@ -162,9 +163,66 @@ namespace InterviewAlgorithms
        */
       const string sentence129 = "aaabbbcccdddddd";
 
+      display("-----------------");
+      display("Problem 13 Google10");
+      /*
+       10. In a BST with integer values, given a float value return the node with the closest value
+       */
+
+      display("-----------------");
+      display("Problem 14 LinkedIn1");
+      /*
+       1. 
+        * Return the sum of all integers from a random String. Continuous Integers must be considered as one number.
+
+        * If the input String does not have any Integers, return 0.
+
+        * You may ignore decimals, float, and other non-integer numbers
+
+        * @param str : Input String
+       */
+      const string inputString = "12s312g3123h345d45a65z67 687s909x745";
+      display($"The sum of all numbers is {ReturnSumOfAllInt(inputString)}");
+
+
 
       display("press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static int ReturnSumOfAllInt(string sentence)
+    {
+      int result = 0;
+      int counter = 1;
+      List<int> allNumbers = new List<int>();
+      string tmpNumber = string.Empty;
+      foreach (char t in sentence)
+      {
+        //int val = (int)Char.GetNumericValue('8');
+        if ((int)char.GetNumericValue(t) >= 0 && (int)char.GetNumericValue(t) <= 9)
+        {
+          tmpNumber += (int)char.GetNumericValue(t);
+        }
+        else
+        {
+          if (!char.IsNumber(t))
+          {
+            allNumbers.Add(int.Parse(tmpNumber));
+            tmpNumber = string.Empty;
+            counter++;
+          }
+        }
+      }
+
+      if (tmpNumber != string.Empty)
+      {
+        allNumbers.Add(int.Parse(tmpNumber));
+        tmpNumber = string.Empty;
+        counter++;
+      }
+
+      int total = allNumbers.Sum();
+      return allNumbers.Sum();
     }
 
     public static string GetNumber(string item)
@@ -242,7 +300,7 @@ namespace InterviewAlgorithms
     }
   }
 
-  internal class Player{}
+  internal class Player { }
 
   internal class CardHand
   {
@@ -256,5 +314,5 @@ namespace InterviewAlgorithms
     public void RemoveCard() { }
   }
 
-  internal class Card{}
+  internal class Card { }
 }
