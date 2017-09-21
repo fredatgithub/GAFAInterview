@@ -234,7 +234,7 @@ namespace InterviewAlgorithms
       /*
        2. Write a parser for validating if an XML is wellformed or not
        */
-      const string oneXml = @"";
+      const string oneXml = @"<?xml version=""1.0"" encoding=""utf-8"" ?>";
       display($"The validation of the XML is {IsXmlValidated(oneXml)}");
 
 
@@ -244,8 +244,14 @@ namespace InterviewAlgorithms
 
     private static bool IsXmlValidated(string oneXml)
     {
-      bool result = false;
+      bool result = true;
+      Dictionary<string, char> caractereXml = new Dictionary<string, char> {{"<", '<'}};
       // TODO check header and tags properly opened and closed
+      if (!oneXml.StartsWith("<?xml version=\"1.0\" encoding=\"utf-8\" ?><Quotes>\r\n  <Quote>\r\n    <Author>Jean-Paul Sartre</Author>\r\n    <Language>French</Language>\r\n    <QuoteValue>Dans la vie on ne fait pas ce que l\'on veut mais on est responsable de ce que l\'on est</QuoteValue>\r\n</Quote>"))
+      {
+        return false;
+      }
+
 
       return result;
     }
