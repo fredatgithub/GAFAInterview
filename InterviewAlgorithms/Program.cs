@@ -297,6 +297,16 @@ namespace InterviewAlgorithms
 
       //Parsing the list of tags DOM
       // TODO
+      if (dom.Count > 1)
+      {
+        for (int i = 0; i < dom.Count / 2; i++)
+        {
+          if (dom[i] != $"/{dom[dom.Count - i - 1]}") // bug not correct to be debug
+          {
+            return false;
+          }
+        }
+      }
 
       return result;
     }
