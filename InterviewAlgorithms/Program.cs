@@ -246,7 +246,7 @@ namespace InterviewAlgorithms
     private static bool IsXmlValidated(string oneXml)
     {
       bool result = true;
-
+      Stack<string> dom = new Stack<string>();
       Dictionary<string, char> caractereXml = new Dictionary<string, char> {{"<", '<'}};
       // TODO check header and tags properly opened and closed
       if (!oneXml.StartsWith(@"<?xml version=""1.0"" encoding=""utf-8"" ?>"))
@@ -254,6 +254,33 @@ namespace InterviewAlgorithms
         return false;
       }
 
+      bool startTag = false;
+      string openingTagName = string.Empty;
+
+      for (int i = 0; i < oneXml.Length; i++)
+      {
+        string currentChar = oneXml[i].ToString();
+        if (currentChar == "<")
+        {
+          startTag = true;
+          openingTagName = string.Empty;
+          continue;
+        }
+
+        if (startTag)
+        {
+          openingTagName += currentChar;
+          continue;
+        }
+
+        if (currentChar == ">")
+        {
+          startTag = false;
+          dom.Push(openingTagName);
+          openingTagName = string.Empty;
+          continue;
+        }
+      }
 
       return result;
     }
