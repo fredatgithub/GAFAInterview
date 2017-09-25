@@ -241,7 +241,7 @@ namespace InterviewAlgorithms
       display($"The validation of the XML is {IsXmlValidated(oneXml)} because it is missing the last tag");
 
       oneXml = "<?xml version=\"1.0\" encoding=\"utf-8\" ?><Quotes>\r\n  <Quote>\r\n    <Author>Jean-Paul Sartre</Author>\r\n    <Language>French</Language>\r\n    <QuoteValue>Dans la vie on ne fait pas ce que l\'on veut mais on est responsable de ce que l\'on est</QuoteValue>\r\n</Quote></Quotes>";
-      display($"The validation of the XML is {IsXmlValidated(oneXml)} but it has an even number of tag");
+      display($"The validation of the XML is {IsXmlValidated(oneXml)}");
       display("press any key to exit:");
       Console.ReadKey();
     }
@@ -304,15 +304,43 @@ namespace InterviewAlgorithms
       //Parsing the list of tags DOM staring with the first one and last one
       string startTag2 = dom[0];
       string lastTag = dom[dom.Count - 1];
-      string tmpStartTagWithSlash = $"{startTag2.Substring(0, 1)}/{startTag2.Substring(1, startTag2.Length - 1)}";
+      string tmpStartTagWithSlash = AddSlashToTag(startTag2);
       if (lastTag != tmpStartTagWithSlash)
       {
         return false; // starting XML tag is different from ending tag
       }
 
       //checking other tags within first and last
-      // TODO
+      Stack<string> domTag1 = new Stack<string>();
+      for (int i = 1; i < dom.Count / 2; i++)
+      {
+        if (AddSlashToTag(dom[i]) == dom[dom.Count - i - 1])
+        {
+          continue;
+        }
+        else if (AddSlashToTag(dom[i]) == dom[i + 1])
+        {
+          i++;
+          continue;
+        }
+        else
+        {
+          domTag1.Push(dom[i]);
+        }
+      }
+
+      result = domTag1.Count < 1;
       return result;
+    }
+
+    private static string AddSlashToTag(string myString)
+    {
+      if (myString == string.Empty)
+      {
+        return "/";
+      }
+
+      return $"{myString.Substring(0, 1)}/{myString.Substring(1, myString.Length - 1)}";
     }
 
     private static string Plural(int number)
