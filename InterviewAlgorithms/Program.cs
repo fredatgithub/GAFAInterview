@@ -250,8 +250,9 @@ namespace InterviewAlgorithms
     {
       bool result = true;
       List<string> dom = new List<string>();
-      Dictionary<string, char> caractereXml = new Dictionary<string, char> {{"<", '<'}};
-      if (!oneXml.StartsWith(@"<?xml version=""1.0"" encoding=""utf-8"" ?>"))
+      string standardFirstXmlTag = @"<?xml version=""1.0"" encoding=""utf-8"" ?>";
+      Dictionary<string, char> caractereXml = new Dictionary<string, char> { { "<", '<' } };
+      if (!oneXml.StartsWith(standardFirstXmlTag))
       {
         return false;
       }
@@ -278,9 +279,14 @@ namespace InterviewAlgorithms
         if (currentChar == ">")
         {
           startTag = false;
-          dom.Add(openingTagName);
+          dom.Add($"<{openingTagName}>");
           openingTagName = string.Empty;
         }
+      }
+
+      if (oneXml.StartsWith(standardFirstXmlTag) && dom.Count == 1)
+      {
+        return true;
       }
 
       // remove first entry which is the definition xml file tag
@@ -288,16 +294,24 @@ namespace InterviewAlgorithms
       {
         dom.RemoveAt(0);
       }
-      
+
       // Does DOM has an even number of nodes ? if so, the xml is incorrect
-      if (dom.Count % 2 != 0 && dom.Count > 1) 
+      if (dom.Count % 2 != 0 && dom.Count > 1)
       {
         return false;
       }
 
       //Parsing the list of tags DOM
-      // TODO
+      string startTag2 = dom[0];
+      string lastTag = dom[dom.Count - 1];
+      string tmpStartTagWithSlash = $"{startTag2.Substring(0, 1)}/{startTag2.Substring(1, startTag2.Length - 1)}";
+      if (lastTag != tmpStartTagWithSlash)
+      {
+        return false; // starting XML tag is different from ending tag
+      }
 
+      //checking other tags within first and last
+      // TODO
       return result;
     }
 
@@ -326,7 +340,7 @@ namespace InterviewAlgorithms
             {
               allNumbers.Add(int.Parse(tmpNumber));
               tmpNumber = string.Empty;
-            }        
+            }
           }
         }
       }
@@ -354,7 +368,7 @@ namespace InterviewAlgorithms
 
   internal class ListOfInterval
   {
-    public List<Interval> Intervals { get; set; }
+    private List<Interval> Intervals { get; set; }
 
     public ListOfInterval()
     {
