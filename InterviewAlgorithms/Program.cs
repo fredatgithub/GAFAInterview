@@ -301,7 +301,7 @@ namespace InterviewAlgorithms
         return false;
       }
 
-      //Parsing the list of tags DOM
+      //Parsing the list of tags DOM staring with the first one and last one
       string startTag2 = dom[0];
       string lastTag = dom[dom.Count - 1];
       string tmpStartTagWithSlash = $"{startTag2.Substring(0, 1)}/{startTag2.Substring(1, startTag2.Length - 1)}";
