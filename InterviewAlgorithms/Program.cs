@@ -242,6 +242,13 @@ namespace InterviewAlgorithms
 
       oneXml = "<?xml version=\"1.0\" encoding=\"utf-8\" ?><Quotes>\r\n  <Quote>\r\n    <Author>Jean-Paul Sartre</Author>\r\n    <Language>French</Language>\r\n    <QuoteValue>Dans la vie on ne fait pas ce que l\'on veut mais on est responsable de ce que l\'on est</QuoteValue>\r\n</Quote></Quotes>";
       display($"The validation of the XML is {IsXmlValidated(oneXml)}");
+
+      display("-----------------");
+      display("Problem 18 Amazon1");
+      /*
+       1. What is a priority queue? How will you implement it? Complexity of each implementation.
+       */
+
       display("press any key to exit:");
       Console.ReadKey();
     }

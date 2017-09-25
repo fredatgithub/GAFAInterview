@@ -148,7 +148,7 @@ Apple
 
 What frameworks I've built in the past?
 
-Given a collection of tiles and collection of points, how will you find if a a tile has any points in it?
+Given a collection of tiles and collection of points, how will you find if a tile has any points in it?
 
 Code up palindrome
 
