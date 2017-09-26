@@ -268,9 +268,31 @@ namespace InterviewAlgorithms
       int[] array203 = { 3, 1, 3, 4, 4, 0, 0, 9 };
       display($"The elements which have only 1 element are: {ExtractOnes(AddToDic(unsortedArrayOfInt))}");
       display($"The elements which have only 1 element are: {ExtractOnes(AddToDic(array203))}");
-      
+
+      display("-----------------");
+      display("Problem 21 Amazon4");
+      /*
+       4. Question: Curly braces can be used in programming to provide scope-limit. Write a function to print all valid( properly opened and closed) combinations of n-pairs of curly braces.
+          Example:
+          input: 1 output: {}
+          input: 2 output: {}{}, {{}}
+          input: 3 output: {}{}{}, {}{{}}, {{}}{}, {{}{}}, {{{}}}
+       */
+      int number214 = 1;
+      display($"All valid combinations of n-pairs of curly braces are: {AllCombo(number214)}");
+      number214 = 2;
+      display($"All valid combinations of n-pairs of curly braces are: {AllCombo(number214)}");
+      number214 = 3;
+      display($"All valid combinations of n-pairs of curly braces are: {AllCombo(number214)}");
       display("press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static string AllCombo(int number)
+    {
+      string result = string.Empty;
+
+      return result;
     }
 
     private static Dictionary<string, int> AddToDic(int[] myArray)
