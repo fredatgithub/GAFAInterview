@@ -249,8 +249,66 @@ namespace InterviewAlgorithms
        1. What is a priority queue? How will you implement it? Complexity of each implementation.
        */
 
+      display("-----------------");
+      display("Problem 19 Amazon2");
+      /*
+       2. Implement atoi (char to Int in C++)
+       */
+      string aNumber = "11";
+      int number = AtoInt(aNumber);
+
+      display("-----------------");
+      display("Problem 20 Amazon3");
+      /*
+       3. Given an unsorted array of integers with each value occuring even number of times except for one of them which occurs odd number of times. Return the element which occurs odd number of times.
+       Ex: 3 1 3 4 4 0 0 ==> return 1
+       */
+
+      int[] unsortedArrayOfInt = { 3, 1, 3, 4, 4, 0, 0 };
+      int[] array203 = { 3, 1, 3, 4, 4, 0, 0, 9 };
+      display($"The elements which have only 1 element are: {ExtractOnes(AddToDic(unsortedArrayOfInt))}");
+      display($"The elements which have only 1 element are: {ExtractOnes(AddToDic(array203))}");
+      
       display("press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static Dictionary<string, int> AddToDic(int[] myArray)
+    {
+      var dico = new Dictionary<string, int>();
+      foreach (int nb in myArray)
+      {
+        if (dico.ContainsKey(nb.ToString()))
+        {
+          dico[nb.ToString()]++;
+        }
+        else
+        {
+          dico.Add(nb.ToString(), 1);
+        }
+      }
+
+      return dico;
+    }
+
+    private static string ExtractOnes(Dictionary<string, int> dico)
+    {
+      string result = string.Empty;
+      foreach (KeyValuePair<string, int> kvp in dico)
+      {
+        if (kvp.Value == 1)
+        {
+          //yield return int.Parse(kvp.Key);
+          result += $"{kvp.Key} ";
+        }
+      }
+
+      return result;
+    }
+
+    private static int AtoInt(string aNumber)
+    {
+      return int.Parse(aNumber);
     }
 
     private static bool IsXmlValidated(string oneXml)
@@ -258,7 +316,7 @@ namespace InterviewAlgorithms
       bool result = true;
       List<string> dom = new List<string>();
       string standardFirstXmlTag = @"<?xml version=""1.0"" encoding=""utf-8"" ?>";
-      Dictionary<string, char> caractereXml = new Dictionary<string, char> { { "<", '<' } };
+      var caractereXml = new Dictionary<string, char> { { "<", '<' } };
       if (!oneXml.StartsWith(standardFirstXmlTag))
       {
         return false;
@@ -323,12 +381,10 @@ namespace InterviewAlgorithms
       {
         if (AddSlashToTag(dom[i]) == dom[dom.Count - i - 1])
         {
-          continue;
         }
         else if (AddSlashToTag(dom[i]) == dom[i + 1])
         {
           i++;
-          continue;
         }
         else
         {
