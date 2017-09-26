@@ -279,18 +279,147 @@ namespace InterviewAlgorithms
           input: 3 output: {}{}{}, {}{{}}, {{}}{}, {{}{}}, {{{}}}
        */
       int number214 = 1;
-      display($"All valid combinations of n-pairs of curly braces are: {AllCombo(number214)}");
+      display($"All valid combinations of {number214}-pair of curly braces are: {AllCombo(number214)}");
       number214 = 2;
-      display($"All valid combinations of n-pairs of curly braces are: {AllCombo(number214)}");
+      display($"All valid combinations of {number214}-pairs of curly braces are: {AllCombo(number214)}");
       number214 = 3;
-      display($"All valid combinations of n-pairs of curly braces are: {AllCombo(number214)}");
+      display($"All valid combinations of {number214}-pairs of curly braces are: {AllCombo(number214)}");
+      number214 = 4;
+      display($"All valid combinations of {number214}-pairs of curly braces are: {AllCombo(number214)}");
+
+      display("-----------------");
+      display("Problem 22 Amazon5");
+      /*
+       5. Test a Coke vending machine
+       */
+      // TODO
+
+      display("-----------------");
+      display("Problem 23 Apple1");
+      /*
+       What frameworks I've built in the past?
+       */
+
+      display("-----------------");
+      display("Problem 24 Apple2");
+      /*
+       Given a collection of tiles and collection of points, how will you find if a tile has any points in it?
+       */
+
+      display("-----------------");
+      display("Problem 25 Apple3");
+      /*
+       Code up palindrome
+       */
+      var listOfPalindromes = new List<string> {
+      "Ésope reste ici et se repose",
+      "La mariée ira mal",
+      "radar",
+      "rotor",
+      "été",
+      "ici",
+      "tôt",
+      "Bob",
+      "Natan",
+       "Neven",
+       "Ève",
+       "Anna",
+       "Otto",
+       "Sées",
+       "Noyon",
+       "Callac",
+       "Laval",
+       "Senones",
+        "Is not a palindrome",
+        "caser vite ce palindrome ne mord ni lape cet ivre sac",
+        
+        "Mon nom",
+        "Eh ! ça va la vache", 
+        "À l'émir, Asimov a vomi sa rime, là",
+        "Engage le jeu que je le gagne",
+        "Noël a trop par rapport à Léon",
+        "À l'étape, épate-la",
+        "La mère Gide digère mal",
+        "Léon, émir cornu, d'un roc rime Noël",
+        "Élu par cette crapule",
+        "Un radar nu",
+        "Éric notre valet alla te laver ton ciré",
+        "Luc notre valet alla te laver ton cul",
+        "Le ruban à Burel",
+        "Été le bar arabe l'été",
+        "Tâte l'État",
+        "Un roc cornu",
+        "Tu l'as trop écrasé, César, ce Port-Salut",
+        "Oh, cela te perd répéta l'écho",
+        "rue Verlaine gela le génial rêveur",
+        "Et la marine va venir à Malte",
+        "Elle dira hélas à la sale haridelle"
+      };
+
+      foreach (string palindrome in listOfPalindromes)
+      {
+        //display($"palindrome={palindrome}");
+        //display($"Its reverse is={new string(palindrome.Reverse().ToArray()) }");
+        display($"The word or sentence: {palindrome} is{Negative(IsAPalindrome(palindrome))} a palindrome");
+      }
+
+      
+
       display("press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static bool IsAPalindrome(string palindrome)
+    {
+      //string result = string.Empty;
+      //for (int i = palindrome.Length - 1; i >= 0; i--)
+      //{
+      //  result += palindrome[i];
+      //}
+      //return string.Equals(RemoveAccent(palindrome), RemoveAccent(result), StringComparison.OrdinalIgnoreCase) ;
+
+      return string.Equals(RemoveAccent(palindrome), RemoveAccent(new string(palindrome.Reverse().ToArray())), StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static string RemoveAccent(string s)
+    {
+      string result = s;
+      char[] Eaccents = { 'é', 'è', 'E', 'ê', 'È', 'É', 'ë' };
+      foreach (char accent in Eaccents)
+      {
+        result = result.Replace(accent, 'e');
+      }
+
+      char[] Aaccents = { 'à', 'â', 'A', 'À' };
+      foreach (char accent in Aaccents)
+      {
+        result = result.Replace(accent, 'a');
+      }
+      
+      result = result.Replace(" ", "");
+      result = result.Replace(",", "");
+      result = result.Replace("'", "");
+      result = result.Replace("!", "");
+      result = result.Replace("-", "");
+      return result;
+    }
+
+    private static string Negative(bool booleanValue)
+    {
+      return booleanValue ? string.Empty : " not";
     }
 
     private static string AllCombo(int number)
     {
       string result = string.Empty;
+      if (number == 1) return "{}";
+      if (number == 2) return "{}{}, {{}}";
+      if (number == 3) return "{}{}{}, {}{{}}, {{}}{}, {{}{}}, {{{}}}";
+      for (int i = 4; i <= number; i++)
+      {
+        result += "{}{}{}{}, {}{}{{}}, {{}}{}{}, {{}{}{}}, {{{{}}}}";
+        // TODO code the rest
+      }
 
       return result;
     }
@@ -320,7 +449,6 @@ namespace InterviewAlgorithms
       {
         if (kvp.Value == 1)
         {
-          //yield return int.Parse(kvp.Key);
           result += $"{kvp.Key} ";
         }
       }
