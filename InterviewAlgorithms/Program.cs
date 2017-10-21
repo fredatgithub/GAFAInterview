@@ -413,7 +413,7 @@ namespace InterviewAlgorithms
       /*
        Given a dictionary of words. There can be duplicates. Given a bag of letters. There can be duplicates. Print the length of the longest valid dictionary word that can be formed from the bag.
        */
-      List<string> dicoOfWords = new List<string> {"lot", "of", "word", "words", "galaxy", "of"};
+      List<string> dicoOfWords = new List<string> { "lot", "of", "word", "words", "galaxy", "of" };
       string tmpPhrase = "Given a dictionary of words. There can be duplicates. Given a bag of letters. There can be duplicates. Print the length of the longest valid dictionary word that can be formed from the bag";
       foreach (string word in tmpPhrase.Split(' '))
       {
@@ -435,17 +435,7 @@ namespace InterviewAlgorithms
       Dictionary<string, int> dicoresult = new Dictionary<string, int>();
       foreach (string word in dicoOfWords)
       {
-        bool allLettersIn = true;
-        foreach (char c in word)
-        {
-          if (!bagOfLetters.Contains(c))
-          {
-            allLettersIn = false;
-            break;
-          }
-        }
-
-        if (allLettersIn)
+        if (LettersInWord(word, bagOfLetters))
         {
           if (!dicoresult.ContainsKey(word))
           {
@@ -457,6 +447,11 @@ namespace InterviewAlgorithms
       display($"The longest word is {LongestWord(dicoresult)}");
       display("press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static bool LettersInWord(string word, List<char> bagOfLetters)
+    {
+      return word.All(c => bagOfLetters.Contains(c));
     }
 
     private static string LongestWord(Dictionary<string, int> dico)
