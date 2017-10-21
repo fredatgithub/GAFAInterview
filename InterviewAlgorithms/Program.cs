@@ -332,9 +332,9 @@ namespace InterviewAlgorithms
        "Senones",
         "Is not a palindrome",
         "caser vite ce palindrome ne mord ni lape cet ivre sac",
-        
+
         "Mon nom",
-        "Eh ça va la vache", 
+        "Eh ça va la vache",
         "À l'émir, Asimov a vomi sa rime, là",
         "Engage le jeu que je le gagne",
         "Noël a trop par rapport à Léon",
@@ -364,7 +364,56 @@ namespace InterviewAlgorithms
         display($"{Negative(IsAPalindrome(palindrome))} a palindrome: {palindrome}");
       }
 
-      
+      display("-----------------");
+      display("Problem 26 Apple4");
+      /*
+       Given a huge JSON file, write a way to serialize paths
+        Ex: { k1 : '1234',
+        k2 :
+        { k3 : '123',
+        k4 : 'abc'
+        }
+        k3 : 'sddd',
+        }
+        output: k1 -> k2.k3 -> k2.k4, k3
+       */
+
+      display("-----------------");
+      display("Problem 27 Apple5");
+      /*
+       Explain my approach to testing in the past. Dev hooks, api layer, abstraction etc
+       */
+
+      display("-----------------");
+      display("Problem 28 Apple6");
+      /*
+       Write a class for implementing LRU cache. What methods will be there? How will you test it?
+       */
+
+      display("-----------------");
+      display("Problem 29 Apple7");
+      /*
+       Given a collection of points, return the k closest points to a given point
+       */
+
+      display("-----------------");
+      display("Problem 30 Apple8");
+      /*
+       How did I deal with an ambiguous situation
+       */
+
+      display("-----------------");
+      display("Problem 31 Apple9");
+      /*
+       What is my approach to solving a big daunting problem
+       */
+
+      display("-----------------");
+      display("Problem 32 Amazon1");
+      /*
+       Given a dictionary of words. There can be duplicates. Given a bag of letters. There can be duplicates. Print the length of the longest valid dictionary word that can be formed from the bag.
+       */
+
 
       display("press any key to exit:");
       Console.ReadKey();
