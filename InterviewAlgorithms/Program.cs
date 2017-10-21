@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace InterviewAlgorithms
 {
@@ -420,18 +421,20 @@ namespace InterviewAlgorithms
         dicoOfWords.Add(word.Trim('.'));
       }
 
-      List<char> bagOfLetters = new List<char>();
-      for (char a = 'a'; a <= 'z'; a++)
-      {
-        bagOfLetters.Add(a);
-      }
+      List<char> bagOfLetters = GetRandomChar();
 
-      // few duplicate
-      bagOfLetters.Add('e');
-      bagOfLetters.Add('i');
-      bagOfLetters.Add('a');
-      bagOfLetters.Add('o');
-      bagOfLetters.Add('u');
+      //List<char> bagOfLetters = new List<char>();
+      //for (char a = 'a'; a <= 'z'; a++)
+      //{
+      //  bagOfLetters.Add(a);
+      //}
+
+      //// few duplicate
+      //bagOfLetters.Add('e');
+      //bagOfLetters.Add('i');
+      //bagOfLetters.Add('a');
+      //bagOfLetters.Add('o');
+      //bagOfLetters.Add('u');
       Dictionary<string, int> dicoresult = new Dictionary<string, int>();
       foreach (string word in dicoOfWords)
       {
@@ -449,9 +452,42 @@ namespace InterviewAlgorithms
       Console.ReadKey();
     }
 
-    private static bool LettersInWord(string word, List<char> bagOfLetters)
+    private static List<char> GetRandomChar()
     {
-      return word.All(c => bagOfLetters.Contains(c));
+      List<char> result = new List<char>();
+      int numberOfChar = GenerateRandomNumberUsingCrypto(1, 254);
+      var allChar = "abcdefghijklmnopqrstuvwxyz";
+      for (int i = 0; i < numberOfChar; i++)
+      {
+        result.Add(allChar[GenerateRandomNumberUsingCrypto(0, allChar.Length)]);
+      }
+
+      return result;
+    }
+
+    private static int GenerateRandomNumberUsingCrypto(int min, int max)
+    {
+      if (max >= 255)
+      {
+        return 0;
+      }
+
+      int result;
+      var crypto = new RNGCryptoServiceProvider();
+      byte[] randomNumber = new byte[1];
+      do
+      {
+        crypto.GetBytes(randomNumber);
+        result = randomNumber[0];
+      } while (result <= min || result >= max);
+
+      return result;
+    }
+
+    private static bool LettersInWord(string word, ICollection<char> bagOfLetters)
+    {
+      //return word.All(c => bagOfLetters.Contains(c));
+      return word.All(bagOfLetters.Contains);
     }
 
     private static string LongestWord(Dictionary<string, int> dico)
