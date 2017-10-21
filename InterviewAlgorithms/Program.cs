@@ -413,10 +413,59 @@ namespace InterviewAlgorithms
       /*
        Given a dictionary of words. There can be duplicates. Given a bag of letters. There can be duplicates. Print the length of the longest valid dictionary word that can be formed from the bag.
        */
+      List<string> dicoOfWords = new List<string> {"lot", "of", "word", "words", "galaxy", "of"};
+      string tmpPhrase = "Given a dictionary of words. There can be duplicates. Given a bag of letters. There can be duplicates. Print the length of the longest valid dictionary word that can be formed from the bag";
+      foreach (string word in tmpPhrase.Split(' '))
+      {
+        dicoOfWords.Add(word.Trim('.'));
+      }
 
+      List<char> bagOfLetters = new List<char>();
+      for (char a = 'a'; a <= 'z'; a++)
+      {
+        bagOfLetters.Add(a);
+      }
 
+      // few duplicate
+      bagOfLetters.Add('e');
+      bagOfLetters.Add('i');
+      bagOfLetters.Add('a');
+      bagOfLetters.Add('o');
+      bagOfLetters.Add('u');
+      Dictionary<string, int> dicoresult = new Dictionary<string, int>();
+      foreach (string word in dicoOfWords)
+      {
+        bool allLettersIn = true;
+        foreach (char c in word)
+        {
+          if (!bagOfLetters.Contains(c))
+          {
+            allLettersIn = false;
+            break;
+          }
+        }
+
+        if (allLettersIn)
+        {
+          if (!dicoresult.ContainsKey(word))
+          {
+            dicoresult.Add(word, word.Length);
+          }
+        }
+      }
+
+      display($"The longest word is {LongestWord(dicoresult)}");
       display("press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static string LongestWord(Dictionary<string, int> dico)
+    {
+      string result = string.Empty;
+      var maxValue = dico.Values.Max();
+      var keys = dico.Where(kvp => kvp.Value == maxValue).Select(kvp => kvp.Key);
+      result = keys.First();
+      return result;
     }
 
     private static bool IsAPalindrome(string palindrome)
