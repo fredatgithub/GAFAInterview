@@ -334,7 +334,7 @@ namespace InterviewAlgorithms
         "caser vite ce palindrome ne mord ni lape cet ivre sac",
         
         "Mon nom",
-        "Eh ! ça va la vache", 
+        "Eh ça va la vache", 
         "À l'émir, Asimov a vomi sa rime, là",
         "Engage le jeu que je le gagne",
         "Noël a trop par rapport à Léon",
@@ -360,7 +360,8 @@ namespace InterviewAlgorithms
       {
         //display($"palindrome={palindrome}");
         //display($"Its reverse is={new string(palindrome.Reverse().ToArray()) }");
-        display($"The word or sentence: {palindrome} is{Negative(IsAPalindrome(palindrome))} a palindrome");
+        //display($"The word or sentence: {palindrome} is{Negative(IsAPalindrome(palindrome))} a palindrome");
+        display($"{Negative(IsAPalindrome(palindrome))} a palindrome: {palindrome}");
       }
 
       
@@ -395,7 +396,8 @@ namespace InterviewAlgorithms
       {
         result = result.Replace(accent, 'a');
       }
-      
+
+      result = result.Replace("ç", "c");
       result = result.Replace(" ", "");
       result = result.Replace(",", "");
       result = result.Replace("'", "");
